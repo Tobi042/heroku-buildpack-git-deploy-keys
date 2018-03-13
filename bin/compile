@@ -145,6 +145,9 @@ arrow "Wrote ssh key to user's ssh dir"
 File.open "#{SSH_DIR}/known_hosts", 'w' do |f|
   f.write host_hash
 end
+arrow "Fetching ssh key myself..."
+`ssh-keyscan -t rsa bitbucket.org >> #{SSH_DIR}/known_hosts`
+
 FileUtils.chmod 0600, "#{SSH_DIR}/known_hosts"
 arrow "Wrote host hash to user's known hosts"
 
