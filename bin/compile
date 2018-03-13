@@ -145,7 +145,6 @@ arrow "Wrote ssh key to user's ssh dir"
 File.open "#{SSH_DIR}/known_hosts", 'w+' do |f|
   f.puts host_hash
 end
-
 FileUtils.chmod 0600, "#{SSH_DIR}/known_hosts"
 arrow "Wrote host hash to user's known hosts"
 
@@ -160,6 +159,3 @@ FileUtils.chmod 0600, "#{SSH_DIR}/config"
 arrow "Wrote config to user's config"
 arrow "SSH CONFIG"
 arrow File.read("#{SSH_DIR}/config")
-arrow ""
-arrow "SSH KNOWN_HOSTS"
-arrow File.read("#{SSH_DIR}/known_hosts")
